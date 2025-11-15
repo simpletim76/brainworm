@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>BrainWorm Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>BrainWorm Dashboard</h1>
+            <div class="last-updated">Last updated: <span id="lastUpdate">--</span></div>
+        </header>
+
+        <div class="dashboard-grid">
+            <!-- Weather Tile -->
+            <div class="tile weather-tile" id="weatherTile">
+                <div class="tile-header">
+                    <h2>Weather</h2>
+                    <button class="refresh-btn" onclick="loadWeather()">↻</button>
+                </div>
+                <div class="tile-content">
+                    <div class="loading">Loading...</div>
+                </div>
+            </div>
+
+            <!-- Crypto Prices Tile -->
+            <div class="tile crypto-tile" id="cryptoTile">
+                <div class="tile-header">
+                    <h2>Crypto Prices</h2>
+                    <button class="refresh-btn" onclick="loadCrypto()">↻</button>
+                </div>
+                <div class="tile-content">
+                    <div class="loading">Loading...</div>
+                </div>
+            </div>
+
+            <!-- News Tile -->
+            <div class="tile news-tile" id="newsTile">
+                <div class="tile-header">
+                    <h2>Latest News</h2>
+                    <button class="refresh-btn" onclick="loadNews()">↻</button>
+                </div>
+                <div class="tile-content">
+                    <div class="loading">Loading...</div>
+                </div>
+            </div>
+
+            <!-- Quote Tile -->
+            <div class="tile quote-tile" id="quoteTile">
+                <div class="tile-header">
+                    <h2>Quote of the Day</h2>
+                    <button class="refresh-btn" onclick="loadQuote()">↻</button>
+                </div>
+                <div class="tile-content">
+                    <div class="loading">Loading...</div>
+                </div>
+            </div>
+
+            <!-- ISS Location Tile -->
+            <div class="tile iss-tile" id="issTile">
+                <div class="tile-header">
+                    <h2>ISS Location</h2>
+                    <button class="refresh-btn" onclick="loadISS()">↻</button>
+                </div>
+                <div class="tile-content">
+                    <div class="loading">Loading...</div>
+                </div>
+            </div>
+
+            <!-- Cat Fact Tile -->
+            <div class="tile catfact-tile" id="catfactTile">
+                <div class="tile-header">
+                    <h2>Cat Fact</h2>
+                    <button class="refresh-btn" onclick="loadCatFact()">↻</button>
+                </div>
+                <div class="tile-content">
+                    <div class="loading">Loading...</div>
+                </div>
+            </div>
+
+            <!-- Time Tile -->
+            <div class="tile time-tile" id="timeTile">
+                <div class="tile-header">
+                    <h2>Current Time</h2>
+                </div>
+                <div class="tile-content">
+                    <div id="currentTime" class="time-display">--:--:--</div>
+                    <div id="currentDate" class="date-display">----</div>
+                </div>
+            </div>
+
+            <!-- System Info Tile -->
+            <div class="tile info-tile" id="infoTile">
+                <div class="tile-header">
+                    <h2>Dashboard Info</h2>
+                </div>
+                <div class="tile-content">
+                    <div class="info-content">
+                        <p><strong>Status:</strong> <span class="status-online">Online</span></p>
+                        <p><strong>Tiles Active:</strong> 8</p>
+                        <p><strong>Auto-refresh:</strong> 5 min</p>
+                        <button class="action-btn" onclick="refreshAll()">Refresh All</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
