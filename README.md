@@ -4,8 +4,7 @@ A beautiful, containerized tile-based dashboard optimized for iPad viewing. Disp
 
 ## Features
 
-- **Weather Tile**: Current weather conditions, temperature, humidity, and wind speed
-- **Cryptocurrency Prices**: Real-time prices for Bitcoin, Ethereum, and Cardano with 24h change
+- **Weather Tile**: Current weather conditions, temperature, humidity, and wind speed (New York, NY)
 - **News Feed**: Latest world news headlines from BBC
 - **Quote of the Day**: Daily inspirational quotes
 - **ISS Location**: Real-time position of the International Space Station
@@ -17,15 +16,36 @@ A beautiful, containerized tile-based dashboard optimized for iPad viewing. Disp
 
 - **Frontend**: Vanilla JavaScript, HTML5, CSS3
 - **Backend**: Node.js, Express
-- **APIs**: Open-Meteo (weather), CoinGecko (crypto), RSS2JSON (news), ZenQuotes, CatFact.ninja, Open-Notify (ISS)
-- **Containerization**: Docker & Docker Compose
+- **APIs**: Open-Meteo (weather), RSS2JSON (news), ZenQuotes, CatFact.ninja, Open-Notify (ISS)
+- **Containerization**: Docker & Docker Compose (optional)
 
 ## Prerequisites
 
+### For Docker (Desktop/Server):
 - Docker
 - Docker Compose
 
+### For Raspberry Pi:
+- Node.js 14+ and npm
+- See [RASPBERRY_PI_SETUP.md](RASPBERRY_PI_SETUP.md) for detailed instructions
+
 ## Quick Start
+
+### 🍓 Raspberry Pi Users (Pi Zero W, Pi 3, Pi 4)
+
+**Docker may not work well on Raspberry Pi Zero W due to ARMv6 architecture. Use the native setup instead:**
+
+```bash
+chmod +x setup-pi.sh
+./setup-pi.sh
+npm start
+```
+
+See [RASPBERRY_PI_SETUP.md](RASPBERRY_PI_SETUP.md) for complete setup guide, troubleshooting, and running as a service.
+
+---
+
+### For Desktop/Server with Docker
 
 ### Using Docker Compose (Recommended)
 
