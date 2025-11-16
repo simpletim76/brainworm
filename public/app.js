@@ -60,50 +60,6 @@ async function loadWeather() {
     }
 }
 
-// Crypto functions
-async function loadCrypto() {
-    const tile = document.querySelector('#cryptoTile .tile-content');
-    tile.innerHTML = '<div class="loading">Loading...</div>';
-
-    try {
-        const response = await fetch(`${API_BASE}/api/crypto`);
-        const data = await response.json();
-
-        const cryptoNames = {
-            bitcoin: '₿ Bitcoin',
-            ethereum: 'Ξ Ethereum',
-            cardano: '₳ Cardano'
-        };
-
-        let html = '<div class="crypto-list">';
-
-        for (const [key, value] of Object.entries(data)) {
-            const change = value.usd_24h_change || 0;
-            const changeClass = change >= 0 ? 'positive' : 'negative';
-            const changeSymbol = change >= 0 ? '▲' : '▼';
-
-            html += `
-                <div class="crypto-item">
-                    <div>
-                        <div class="crypto-name">${cryptoNames[key]}</div>
-                        <div class="crypto-change ${changeClass}">
-                            ${changeSymbol} ${Math.abs(change).toFixed(2)}%
-                        </div>
-                    </div>
-                    <div class="crypto-price">$${value.usd.toLocaleString()}</div>
-                </div>
-            `;
-        }
-
-        html += '</div>';
-        tile.innerHTML = html;
-        updateLastUpdatedTime();
-    } catch (error) {
-        console.error('Error loading crypto:', error);
-        tile.innerHTML = '<div style="color: #ef4444; text-align: center;">Failed to load crypto data</div>';
-    }
-}
-
 // News functions
 async function loadNews() {
     const tile = document.querySelector('#newsTile .tile-content');
@@ -244,7 +200,6 @@ function updateTime() {
 // Refresh all tiles
 function refreshAll() {
     loadWeather();
-    loadCrypto();
     loadNews();
     loadQuote();
     loadISS();

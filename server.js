@@ -54,20 +54,6 @@ app.get('/api/quote', async (req, res) => {
   }
 });
 
-// Cryptocurrency prices (using CoinGecko - no API key required)
-app.get('/api/crypto', async (req, res) => {
-  try {
-    const response = await fetch(
-      'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,cardano&vs_currencies=usd&include_24hr_change=true'
-    );
-    const data = await response.json();
-    res.json(data);
-  } catch (error) {
-    console.error('Crypto API error:', error);
-    res.status(500).json({ error: 'Failed to fetch crypto data' });
-  }
-});
-
 // Random cat fact API
 app.get('/api/catfact', async (req, res) => {
   try {

@@ -171,47 +171,6 @@ header h1 {
     color: #333;
 }
 
-/* Crypto Tile */
-.crypto-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.crypto-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    background: #f8f9fa;
-    border-radius: 10px;
-}
-
-.crypto-name {
-    font-weight: bold;
-    color: #333;
-    font-size: 1.1rem;
-}
-
-.crypto-price {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #667eea;
-}
-
-.crypto-change {
-    font-size: 0.9rem;
-    margin-top: 5px;
-}
-
-.positive {
-    color: #10b981;
-}
-
-.negative {
-    color: #ef4444;
-}
-
 /* News Tile */
 .news-list {
     display: flex;
