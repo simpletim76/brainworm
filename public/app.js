@@ -267,37 +267,6 @@ async function loadISS() {
 }
 
 // ========================================
-// CAT FACT ARCHIVE MODULE
-// ========================================
-
-async function loadCatFact() {
-    const tile = document.querySelector('#catfactTile .tile-content');
-    showLoading(tile, 'RETRIEVING...');
-
-    try {
-        const response = await fetch(`${API_BASE}/api/catfact`);
-        if (!response.ok) throw new Error('Network response failed');
-
-        const data = await response.json();
-
-        tile.innerHTML = `
-            <div class="catfact-content">
-                <div style="
-                    font-size: 4rem;
-                    margin-bottom: 25px;
-                    animation: iconFloat 3s ease-in-out infinite;
-                ">🐱</div>
-                <div class="catfact-text">${data.fact}</div>
-            </div>
-        `;
-        updateLastUpdatedTime();
-    } catch (error) {
-        console.error('Cat fact error:', error);
-        showError(tile, 'ARCHIVE ACCESS DENIED<br>DATABASE ERROR');
-    }
-}
-
-// ========================================
 // TIME DISPLAY MODULE
 // ========================================
 
@@ -346,7 +315,6 @@ function refreshAll() {
     loadNews();
     loadQuote();
     loadISS();
-    loadCatFact();
     updateLastUpdatedTime();
 }
 
@@ -355,7 +323,7 @@ function refreshAll() {
 // ========================================
 
 function init() {
-    console.log('Initializing Neural Nexus Dashboard...');
+    console.log('Initializing dashboard...');
 
     // Initial data load
     refreshAll();
@@ -371,7 +339,7 @@ function init() {
     // Auto-refresh data every 5 minutes
     setInterval(refreshAll, 5 * 60 * 1000);
 
-    console.log('Dashboard initialized successfully');
+    console.log('Dashboard ready');
 }
 
 // ========================================
@@ -394,11 +362,7 @@ document.addEventListener('visibilitychange', () => {
 });
 
 // Log console startup message
-console.log(`
-%c╔═══════════════════════════════════════╗
-║   NEURAL NEXUS DASHBOARD v2.0.47    ║
-║   SYSTEM STATUS: OPERATIONAL         ║
-║   ALL MODULES: ONLINE                ║
-╚═══════════════════════════════════════╝`,
-'color: #00ffff; font-family: monospace; font-size: 12px; text-shadow: 0 0 10px #00ffff;'
+console.log(
+'%cDashboard initialized',
+'color: #a1a1a6; font-family: -apple-system, sans-serif; font-size: 12px;'
 );

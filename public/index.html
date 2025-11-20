@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>NEURAL NEXUS v2.0</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -17,27 +17,27 @@
     <div class="container">
         <header class="main-header">
             <div class="header-glitch-wrapper">
-                <h1 class="glitch-text" data-text="NEURAL NEXUS">NEURAL NEXUS</h1>
-                <div class="system-version">SYSTEM v2.0.47</div>
+                <h1 class="glitch-text" data-text="Dashboard">Dashboard</h1>
+                <div class="system-version">Live Information</div>
             </div>
             <div class="header-status">
                 <div class="status-indicator"></div>
-                <span class="status-text">ONLINE</span>
+                <span class="status-text">Online</span>
                 <span class="status-separator">|</span>
-                <span class="last-sync">SYNC: <span id="lastUpdate">--:--:--</span></span>
+                <span class="last-sync">Updated: <span id="lastUpdate">--:--:--</span></span>
             </div>
         </header>
 
         <div class="dashboard-grid">
-            <!-- Environmental Monitoring -->
-            <div class="tile weather-tile" id="weatherTile" data-tile="ENV-001">
+            <!-- Weather -->
+            <div class="tile weather-tile" id="weatherTile" data-tile="Weather">
                 <div class="tile-border"></div>
                 <div class="tile-header">
                     <div class="tile-title-group">
-                        <span class="tile-icon">🌐</span>
+                        <span class="tile-icon">🌤</span>
                         <div>
-                            <h2>ENVIRONMENTAL</h2>
-                            <span class="tile-id">SENSOR-ALPHA</span>
+                            <h2>Weather</h2>
+                            <span class="tile-id">New York</span>
                         </div>
                     </div>
                     <button class="refresh-btn" onclick="loadWeather()" aria-label="Refresh weather">
@@ -47,20 +47,20 @@
                 <div class="tile-content">
                     <div class="loading">
                         <div class="loading-spinner"></div>
-                        <div>INITIALIZING...</div>
+                        <div>Loading...</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Global Intelligence Feed -->
-            <div class="tile news-tile" id="newsTile" data-tile="NEWS-002">
+            <!-- News -->
+            <div class="tile news-tile" id="newsTile" data-tile="News">
                 <div class="tile-border"></div>
                 <div class="tile-header">
                     <div class="tile-title-group">
-                        <span class="tile-icon">📡</span>
+                        <span class="tile-icon">📰</span>
                         <div>
-                            <h2>INTEL FEED</h2>
-                            <span class="tile-id">GLOBAL-NET</span>
+                            <h2>News</h2>
+                            <span class="tile-id">Latest Headlines</span>
                         </div>
                     </div>
                     <button class="refresh-btn" onclick="loadNews()" aria-label="Refresh news">
@@ -70,20 +70,20 @@
                 <div class="tile-content">
                     <div class="loading">
                         <div class="loading-spinner"></div>
-                        <div>SCANNING...</div>
+                        <div>Loading...</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Neural Insight Module -->
-            <div class="tile quote-tile" id="quoteTile" data-tile="QUOTE-003">
+            <!-- Quote -->
+            <div class="tile quote-tile" id="quoteTile" data-tile="Quote">
                 <div class="tile-border"></div>
                 <div class="tile-header">
                     <div class="tile-title-group">
                         <span class="tile-icon">💭</span>
                         <div>
-                            <h2>NEURAL INSIGHT</h2>
-                            <span class="tile-id">WISDOM-CORE</span>
+                            <h2>Quote of the Day</h2>
+                            <span class="tile-id">Inspiration</span>
                         </div>
                     </div>
                     <button class="refresh-btn" onclick="loadQuote()" aria-label="Refresh quote">
@@ -93,20 +93,20 @@
                 <div class="tile-content">
                     <div class="loading">
                         <div class="loading-spinner"></div>
-                        <div>PROCESSING...</div>
+                        <div>Loading...</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Orbital Tracker -->
-            <div class="tile iss-tile" id="issTile" data-tile="ISS-004">
+            <!-- ISS Tracker -->
+            <div class="tile iss-tile" id="issTile" data-tile="ISS">
                 <div class="tile-border"></div>
                 <div class="tile-header">
                     <div class="tile-title-group">
-                        <span class="tile-icon">🛸</span>
+                        <span class="tile-icon">🛰</span>
                         <div>
-                            <h2>ORBITAL TRACK</h2>
-                            <span class="tile-id">SPACE-STATION</span>
+                            <h2>ISS Location</h2>
+                            <span class="tile-id">Space Station</span>
                         </div>
                     </div>
                     <button class="refresh-btn" onclick="loadISS()" aria-label="Refresh ISS location">
@@ -116,85 +116,62 @@
                 <div class="tile-content">
                     <div class="loading">
                         <div class="loading-spinner"></div>
-                        <div>TRACKING...</div>
+                        <div>Loading...</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Data Archive -->
-            <div class="tile catfact-tile" id="catfactTile" data-tile="ARCHIVE-005">
+            <!-- Time -->
+            <div class="tile time-tile" id="timeTile" data-tile="Time">
                 <div class="tile-border"></div>
                 <div class="tile-header">
                     <div class="tile-title-group">
-                        <span class="tile-icon">🗂️</span>
+                        <span class="tile-icon">🕐</span>
                         <div>
-                            <h2>DATA ARCHIVE</h2>
-                            <span class="tile-id">RANDOM-ACCESS</span>
-                        </div>
-                    </div>
-                    <button class="refresh-btn" onclick="loadCatFact()" aria-label="Refresh cat fact">
-                        <span class="btn-icon">⟳</span>
-                    </button>
-                </div>
-                <div class="tile-content">
-                    <div class="loading">
-                        <div class="loading-spinner"></div>
-                        <div>RETRIEVING...</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Temporal Display -->
-            <div class="tile time-tile" id="timeTile" data-tile="TIME-006">
-                <div class="tile-border"></div>
-                <div class="tile-header">
-                    <div class="tile-title-group">
-                        <span class="tile-icon">⏱️</span>
-                        <div>
-                            <h2>TEMPORAL SYNC</h2>
-                            <span class="tile-id">CHRONOMETER</span>
+                            <h2>Current Time</h2>
+                            <span class="tile-id">Local</span>
                         </div>
                     </div>
                 </div>
                 <div class="tile-content">
                     <div id="currentTime" class="time-display">--:--:--</div>
-                    <div id="currentDate" class="date-display">SYNCING TEMPORAL DATA...</div>
+                    <div id="currentDate" class="date-display">Loading...</div>
                 </div>
             </div>
 
-            <!-- System Control -->
-            <div class="tile info-tile" id="infoTile" data-tile="SYS-007">
+            <!-- System Info -->
+            <div class="tile info-tile" id="infoTile" data-tile="Info">
                 <div class="tile-border"></div>
                 <div class="tile-header">
                     <div class="tile-title-group">
                         <span class="tile-icon">⚙️</span>
                         <div>
-                            <h2>SYSTEM CORE</h2>
-                            <span class="tile-id">CONTROL-PANEL</span>
+                            <h2>System Info</h2>
+                            <span class="tile-id">Dashboard</span>
                         </div>
                     </div>
                 </div>
                 <div class="tile-content">
                     <div class="info-content">
                         <div class="info-row">
-                            <span class="info-label">STATUS:</span>
-                            <span class="info-value status-online">OPERATIONAL</span>
+                            <span class="info-label">Status</span>
+                            <span class="info-value status-online">Online</span>
                         </div>
                         <div class="info-row">
-                            <span class="info-label">MODULES:</span>
-                            <span class="info-value">7 ACTIVE</span>
+                            <span class="info-label">Active Widgets</span>
+                            <span class="info-value">6</span>
                         </div>
                         <div class="info-row">
-                            <span class="info-label">AUTO-SYNC:</span>
-                            <span class="info-value">300s INTERVAL</span>
+                            <span class="info-label">Auto Refresh</span>
+                            <span class="info-value">5 minutes</span>
                         </div>
                         <div class="info-row">
-                            <span class="info-label">UPTIME:</span>
-                            <span class="info-value" id="uptime">CALCULATING...</span>
+                            <span class="info-label">Uptime</span>
+                            <span class="info-value" id="uptime">Loading...</span>
                         </div>
                         <button class="action-btn" onclick="refreshAll()">
                             <span class="btn-glow"></span>
-                            <span class="btn-text">SYNC ALL MODULES</span>
+                            <span class="btn-text">Refresh All</span>
                         </button>
                     </div>
                 </div>
@@ -203,11 +180,11 @@
 
         <footer class="main-footer">
             <div class="footer-content">
-                <span>NEURAL NEXUS DASHBOARD</span>
+                <span>Dashboard</span>
                 <span class="footer-separator">•</span>
-                <span>SECURE CONNECTION ESTABLISHED</span>
+                <span>Secure Connection</span>
                 <span class="footer-separator">•</span>
-                <span id="connectionStrength">SIGNAL: <span class="signal-bars">▰▰▰▰▰</span></span>
+                <span id="connectionStrength">Connection: <span class="signal-bars">Excellent</span></span>
             </div>
         </footer>
     </div>
